@@ -44,9 +44,7 @@ A graph was created showing number of processes vs total runtime in seconds.
 
 ### Runtime Graph
 
-```md
 ![Runtime Graph](runtime.png)
-```
 
 ---
 
