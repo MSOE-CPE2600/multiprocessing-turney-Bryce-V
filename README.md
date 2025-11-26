@@ -1,4 +1,4 @@
-# System Programming Lab 11 Multiprocessing
+# System Programming Lab 11 and Lab 12
 **Name:** Bryce Vosburg  
 **Section:** 111  
 
@@ -42,9 +42,11 @@ The program was timed using the Linux `time` command for the following levels of
 
 A graph was created showing number of processes vs total runtime in seconds.
 
-### Runtime Graph
+### Runtime Graphs
 
 ![Runtime Graph](runtime.png)
+
+![thread vs processes](thread_vs_processes.png)
 
 ---
 
@@ -59,13 +61,15 @@ However, the benefit begins to taper off after around 10 processes due to:
 
 This results in a curve with strong early speedup but lower returns at higher process counts, which matches expectations for CPU-bound parallel workloads.
 
+The of results mulitprocessing and multithreading show that both multiprocessing and multithreading improve performance, but multiprocessing has the larger impact. Increasing the number of processes significantly reduces runtime because each process computes frames independently. Threads also provide speedup, but only up to about 4–5 threads, after which performance levels off or even becomes worse due to CPU core limits and overhead. The fastest times occur when using several processes (5–10) combined with a moderate number of threads (3–5).
+
 ---
 
 ## Movie Generation
 After generating 50 frames, I used ffmpeg to convert them into a movie:
 
 ```
-ffmpeg -i frame%02d.jpg mandel.mpg
+ffmpeg -i mandel%02d.jpg mandel.mpg
 ```
 
 ---
